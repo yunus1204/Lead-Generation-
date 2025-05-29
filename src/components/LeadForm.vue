@@ -119,8 +119,21 @@ export default {
     },
   },
   
-  
-   
+  async mounted() {
+    try {
+      await this.loadZohoSDK();
+
+      window.ZOHO.embeddedApp.init();
+
+      window.ZOHO.embeddedApp.on("PageLoad", () => {
+        this.zohoLoaded = true;
+        console.log("Zoho embedded app loaded and ready.");
+      });
+    } catch (error) {
+      console.error("Error loading Zoho SDK:", error);
+      alert("Failed to load Zoho SDK. Please reload the page.");
+    }
+  }, 
 };
 </script>
 
