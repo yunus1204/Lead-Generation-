@@ -48,7 +48,7 @@ export default {
         company: "",
       },
       loading: false,
-      zohoLoaded: false,
+      zohoLoaded: true,
     };
   },
   methods: {
